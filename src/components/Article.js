@@ -27,7 +27,6 @@ export class Article extends React.Component {
     }
 
     filterPubDate(pubDate){
-        console.log(pubDate);
         return pubDate.slice(0, 10);
     }
 
