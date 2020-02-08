@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import {Article} from './components/Article';
 import {Navbar} from './components/Navbar';
 import {Pagination} from './components/Pagination';

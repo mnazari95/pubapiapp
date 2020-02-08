@@ -1,3 +1,12 @@
+//COLORS
+$color-pallate-1 : #011627;
+$color-pallate-2 : #FDFFFC;
+$color-pallate-3 : #2EC4B6;
+$color-pallate-4 : #E71D36;
+$color-pallate-5 : #FF9F1C;
+
+
+
 .app {
   flex: 1 0 auto;
   display: flex;
@@ -15,8 +24,8 @@
 .grid-container > div {
   text-align: center;
   padding: 1.2em 0;
-  border: 0.125em solid black;
-  background:#f8f8f8;
+  border: 0.125em solid $color-pallate-1;
+  background:$color-pallate-2;
   border-radius: 0.3125em;
 }
 
@@ -49,8 +58,8 @@
   font-size: 0.8em;
   border: #282828 0.0625em solid;
   border-radius: 0.3125em;
-  background-color: #d23;
-  color: white;
+  background-color: $color-pallate-3;
+  color: $color-pallate-1;
   padding: 0.125em;
   align-self: center;
 }
@@ -67,7 +76,7 @@ img {
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  background: #d23;
+  background: $color-pallate-3;
   height: 3.7em;
   overflow: hidden;
 }
@@ -84,7 +93,7 @@ img {
 .search-btn {
   border: none;
   border-left: black 0.0625em solid;
-  background-color: white;
+  background-color:$color-pallate-5;
   padding: 0.75em;
   border-top-right-radius: 0.3125em;
   border-bottom-right-radius: 0.3125em;
@@ -92,7 +101,7 @@ img {
 }
 
 input:focus {
-  background-color: #f5f5f5;  
+  background-color:$color-pallate-5;  
 }
 /*PAGINATION*/
 .page-list {
@@ -107,12 +116,12 @@ input:focus {
 .page-item {
   list-style-type: none;
   margin: 0.2em;
-  background-color: #d23;
+  background-color:$color-pallate-3;
   border: none;
 }
 
 .page-item::selection {
-  background-color: #f5f5f5;
+  background-color: $color-pallate-2;
 }
 
 a.page-link {
@@ -121,8 +130,8 @@ a.page-link {
 }
 /*FILTER SECTION*/
 .filter-wrapper {
-  border-top: black 0.0625em solid;
-  border-bottom: black 0.0625em solid;
+  border-top: $color-pallate-1 0.0625em solid;
+  border-bottom: $color-pallate-1 0.0625em solid;
 }
 .filter-container {
   display: flex;
@@ -130,7 +139,7 @@ a.page-link {
   -ms-flex-flow: row nowrap;
   padding: 0.0625em 0.0125em;
   justify-content: space-evenly;
-  background-color: #d23;
+  background-color:$color-pallate-3;
   
   animation: filterbackground 2s forwards;
 }
@@ -157,12 +166,12 @@ a.page-link {
 
 .filter-btn {
   border: none;
-  background-color: #d23;
+  background-color:$color-pallate-3;
 }
 
 .filter-text {
-  background-color: #d23;
-  border: 0.0125em solid white;
+  background-color:$color-pallate-3;
+  border: 0.0125em solid $color-pallate-2;
   
 }
 
@@ -176,22 +185,22 @@ a.page-link {
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 2px #d23;
+  box-shadow: inset 0 0 2px $color-pallate-3;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #f5f5f5;
+  background: $color-pallate-2;
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #f5f5f5;
+  background: $color-pallate-2;
 }
 
 .footer {
   flex-shrink: 0;
-  background-color: #d23;
+  background-color: $color-pallate-3;
   height: 3.5em;
 }
 
@@ -202,12 +211,12 @@ a.page-link {
 @keyframes filterbackground {
   from{
     height: 0em;
-    background-color: black;
+    background-color: $color-pallate-1;
   }
   to{
     /*height: 6.8125em;*/
     height: 12.4013em;
-    background-color: #d23;
+    background-color: $color-pallate-3;
   }
 }
 
