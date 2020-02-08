@@ -137,7 +137,7 @@ export class App extends React.Component {
 		if(this.state.isFilterSearch){
 
 			let startDate = "", endDate = "";
-			let sortBy = "relevance";
+			let sortBy = "&sort=relevance";
 			let sectionListStr = "", filterListStr = "";
 
 			//filter search based on date
@@ -157,7 +157,7 @@ export class App extends React.Component {
 				&& this.state.filterObj.sections.length != null 
 				&& this.state.filterObj.sections.length > 0){
 				
-				sectionListStr = "section_name:(";
+				sectionListStr = "&fq=section_name:(";
 				for (let elem in this.state.filterObj.sections){
 					sectionListStr += "\"" +this.state.filterObj.sections[elem] + "\"";
 				}
@@ -173,6 +173,8 @@ export class App extends React.Component {
 				//check if sectionliststr is empty
 				if (sectionListStr.length > 0){
 					filterListStr = " AND";
+				}else{
+					filterListStr = "&fq="
 				}
 				filterListStr += " type_of_material:("
 				for(let i in this.state.filterObj.filter){
@@ -182,7 +184,7 @@ export class App extends React.Component {
 			}
 
 			fetch("https://api.nytimes.com/svc/search/v2/articlesearch.json?q="
-				+ this.state.userQuery + "&fq="
+				+ this.state.userQuery
 				+ sectionListStr 
 				+ filterListStr
 				+ startDate
@@ -190,6 +192,12 @@ export class App extends React.Component {
 				+ sortBy
 				+ "&page=" + this.state.page
 				+ "&api-key=" + Config.getApiKey()
+			).then((response)=>{
+				if(!response.ok){
+					throw Error(response.statusText);
+				}
+				return response;
+			}
 			).then(res => res.json()
 			).then(
 				result => {
@@ -216,7 +224,12 @@ export class App extends React.Component {
 				"&sort=relevance" +
 				"&page=" + this.state.page +
 				"&api-key=" + Config.getApiKey()
-			).then(res => res.json()
+			).then((response)=>{
+				if(!response.ok){
+					throw Error(response.statusText);
+				}
+				return response;
+			}).then(res => res.json()
 			).then(
 				result => {
 					this.setState({

@@ -41,7 +41,7 @@ export class Navbar extends React.Component {
 	render() {
 		return(
             <div className="flex-container">
-                    <input className="search-bar" type="text" placeholder="movie, politics, technology.." onChange={this.userInput} onKeyPress={this.isEnterPressed}></input>
+                    <input className="search-bar" type="text" placeholder="search here.." onChange={this.userInput} onKeyPress={this.isEnterPressed}></input>
                     <button className="search-btn" onClick={this.sendQuery}><FontAwesomeIcon icon={faSearch} /></button>
             </div>
 		);
