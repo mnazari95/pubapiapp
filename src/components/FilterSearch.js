@@ -119,9 +119,9 @@ export class FilterSearch extends React.Component {
 
     render() { 
 
-        const newsSections = ["Arts", "Automobiles", "Business", 
-            "Education", "Food", "Health", "Movies", "National", 
-            "Real Estate", "Science", "Technology","Sports", "World"];
+        const newsSections = ["World", "Politics", "Arts", "Books", "Business", 
+            "Education", "Food", "Health", "Style", "Movies", "National", 
+            "Real Estate", "Science", "Technology","Sports", "Learning"];
 
         const filterQueryBy = ["news","article", "biography", "blog", "interview", 
              "review", "statistics"];
