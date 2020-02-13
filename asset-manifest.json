@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/pubapiapp/static/css/main.96d2186b.chunk.css",
-    "main.js": "/pubapiapp/static/js/main.bb6dac89.chunk.js",
-    "main.js.map": "/pubapiapp/static/js/main.bb6dac89.chunk.js.map",
+    "main.css": "/pubapiapp/static/css/main.9b1687f0.chunk.css",
+    "main.js": "/pubapiapp/static/js/main.f41df1d4.chunk.js",
+    "main.js.map": "/pubapiapp/static/js/main.f41df1d4.chunk.js.map",
     "runtime-main.js": "/pubapiapp/static/js/runtime-main.f5a6f759.js",
     "runtime-main.js.map": "/pubapiapp/static/js/runtime-main.f5a6f759.js.map",
-    "static/js/2.660f9449.chunk.js": "/pubapiapp/static/js/2.660f9449.chunk.js",
-    "static/js/2.660f9449.chunk.js.map": "/pubapiapp/static/js/2.660f9449.chunk.js.map",
+    "static/js/2.a0ebcead.chunk.js": "/pubapiapp/static/js/2.a0ebcead.chunk.js",
+    "static/js/2.a0ebcead.chunk.js.map": "/pubapiapp/static/js/2.a0ebcead.chunk.js.map",
     "index.html": "/pubapiapp/index.html",
-    "precache-manifest.fdba186bc181c71255feff0614ccd9c1.js": "/pubapiapp/precache-manifest.fdba186bc181c71255feff0614ccd9c1.js",
+    "precache-manifest.3407ff89cc323754c7ef0b1a2d352618.js": "/pubapiapp/precache-manifest.3407ff89cc323754c7ef0b1a2d352618.js",
     "service-worker.js": "/pubapiapp/service-worker.js",
-    "static/css/main.96d2186b.chunk.css.map": "/pubapiapp/static/css/main.96d2186b.chunk.css.map",
-    "static/js/2.660f9449.chunk.js.LICENSE": "/pubapiapp/static/js/2.660f9449.chunk.js.LICENSE"
+    "static/css/main.9b1687f0.chunk.css.map": "/pubapiapp/static/css/main.9b1687f0.chunk.css.map",
+    "static/js/2.a0ebcead.chunk.js.LICENSE": "/pubapiapp/static/js/2.a0ebcead.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.f5a6f759.js",
-    "static/js/2.660f9449.chunk.js",
-    "static/css/main.96d2186b.chunk.css",
-    "static/js/main.bb6dac89.chunk.js"
+    "static/js/2.a0ebcead.chunk.js",
+    "static/css/main.9b1687f0.chunk.css",
+    "static/js/main.f41df1d4.chunk.js"
   ]
 }
