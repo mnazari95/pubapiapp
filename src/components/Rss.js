@@ -38,8 +38,6 @@ export class Rss extends React.Component {
           tObj['imgUrl'] = news['media:content'];
           parsedData.push(tObj);
         });
-
-        console.log(parsedData);
         
         this.setState({
           data: parsedData

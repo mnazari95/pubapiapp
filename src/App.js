@@ -132,6 +132,7 @@ export class App extends React.Component {
 		return str.replace(/-/g, "");
 	}
 
+	//can replace Config.getApiKey() with your own api key from https://developer.nytimes.com/
 	processFetch = (queryParam) => {
 		
 		//filtered fetch
