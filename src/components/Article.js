@@ -43,7 +43,7 @@ export class Article extends React.Component {
                         {
                             (article.multimedia).filter(pic => (pic.subType === "xlarge")).map((img, i) => (
                                 <div key={i} className="article-img">
-                                    <img src={this.getBaseUrl(img.url)} alt="hello world" />
+                                    <img src={this.getBaseUrl(img.url)} alt="" />
                                 </div>
                             ))
                         }

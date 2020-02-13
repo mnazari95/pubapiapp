@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import {Rss} from './components/Rss';
 import {Article} from './components/Article';
 import {Navbar} from './components/Navbar';
 import {Pagination} from './components/Pagination';
@@ -170,7 +171,7 @@ export class App extends React.Component {
 				&& this.state.filterObj.filter.length != null
 				&& this.state.filterObj.filter.length > 0){
 				
-				//check if sectionliststr is empty
+				//check if section checkboxes is selected
 				if (sectionListStr.length > 0){
 					filterListStr = " AND";
 				}else{
@@ -259,7 +260,7 @@ export class App extends React.Component {
 				<Navbar retreiveData = {this.onSearch} />
 				{this.state.isFilterSearch ? <FilterSearch retreiveFilteredQuery = {this.onFilterSearch} toggleFilter={this.state.isFilterSearch} /> : null}
 				<button className="filter-btn" onClick={this.filterSearch}><FontAwesomeIcon icon={this.state.isFilterSearch ? faArrowUp:faArrowDown} /></button>
-				{this.state.isReady ? <Article res={this.state.res} /> : null}
+				{this.state.isReady ? <Article res={this.state.res} /> : <Rss />}
 				{this.state.isReady ? <Pagination retreivePage = {this.onPageChange} btnDetail = {this.state.pagination} lastPage = {this.state.lastPage}/> : null}
 			</div>
 		);
