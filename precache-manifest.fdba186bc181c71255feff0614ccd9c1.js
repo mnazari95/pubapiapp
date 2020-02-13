@@ -1,11 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4548fb96bc0fc6ec6567b3152b84524e",
+    "revision": "511154c388443b1e47a5a5b70baa201d",
     "url": "/pubapiapp/index.html"
   },
   {
-    "revision": "aea7d2b9afdda83ee53d",
-    "url": "/pubapiapp/static/css/main.9cd0f761.chunk.css"
+    "revision": "5e2fa6106cedf8ab326d",
+    "url": "/pubapiapp/static/css/main.96d2186b.chunk.css"
   },
   {
     "revision": "1f6591e5c6186b13215d",
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pubapiapp/static/js/2.660f9449.chunk.js.LICENSE"
   },
   {
-    "revision": "aea7d2b9afdda83ee53d",
-    "url": "/pubapiapp/static/js/main.5f35bf09.chunk.js"
+    "revision": "5e2fa6106cedf8ab326d",
+    "url": "/pubapiapp/static/js/main.bb6dac89.chunk.js"
   },
   {
     "revision": "1338052e9ee522067d26",
