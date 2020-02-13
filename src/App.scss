@@ -56,18 +56,17 @@ input:focus {
   flex-flow: row nowrap;
   -ms-flex-flow: row nowrap;
   padding: 0.0625em 0.0125em;
-  justify-content: center;
+  justify-content: space-evenly;
   background-color:$color-pallate-3;
   animation: filterbackground 2s forwards;
 }
 
 .filter-options {
-  margin: 0.2125em 2.3625em;
+  /*margin: 0.2125em 2.3625em;*/
   padding: 0.0625em 0.125em;
   display: flex;
   flex-flow: column nowrap;
   -ms-flex-flow: column nowrap;
-  flex-shrink: 2;
   overflow: hidden;
 }
 
@@ -253,6 +252,5 @@ a.page-link {
     grid-gap: 1.2em;
     margin: 1.2em 1.2em;
   }
-
 
 }

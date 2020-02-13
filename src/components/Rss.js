@@ -1,80 +1,56 @@
 import React from 'react';
+import PostTime from '../util/PostTime';
 
 export class Rss extends React.Component {
 
-    constructor(props){
-        super(props);
+  constructor(props){
+    super(props);
 
-        this.state = {
-            data: [{
-                title:"",
-                link:"",
-                description:"",
-                pubDate:"",
-                image:""
-            }]
+    this.state = {
+      data: [{}]
+    }
+
+  }
+
+  componentDidMount(){
+
+    fetch("https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml")
+      .then((response) => {
+        if(!response.ok){
+          throw Error(response.statusText);
         }
+        return response.text();
+      })
+      .then(res => {
 
-        this.getTimeSincePost = this.getTimeSincePost.bind(this);
-    }
-
-    componentDidMount(){
-
-        fetch("https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml")
-            .then((response) => {
-                if(!response.ok){
-                    throw Error(response.statusText);
-                }
-                return response.text();
-            })
-            .then(res => {
-
-                const xData = new DOMParser().parseFromString(res, 'text/xml');
-                let jData = xmlToJson(xData);
-                
-                let parsedData = [];
-                const rssFeedList = jData.rss.channel.item;
-
-                rssFeedList.forEach((news) => {
-                    let tObj = {};
-                    tObj['title'] = news.title;
-                    tObj['url'] = news.link;
-                    tObj['description'] = news.description;
-                    tObj['pubDate'] = news.pubDate;
-                    tObj['imgUrl'] = news['media:content'];
-                    parsedData.push(tObj);
-                });
-
-                console.log(parsedData);
-                
-                this.setState({
-                    data: parsedData
-                });
-
-            })
-    }
-
-    getTimeSincePost = (date) => {
-        console.log("before parse : " + date);
-        const postTime = Date.parse(String(date));
-        const postDate = new Date(postTime);
-        const currentTime = new Date();
-        //console.log(postTime.getDay());
-        console.log("post : " + postDate.getUTCFullYear().toString() + " " + postDate.getUTCMonth().toString() + " " + postDate.getUTCDay().toString());
-        console.log("curr : " + currentTime.getUTCHours().toString() + " " + currentTime.getUTCMinutes().toString() + " " + currentTime.getUTCSeconds().toString());
+        const xData = new DOMParser().parseFromString(res, 'text/xml');
+        let jData = xmlToJson(xData);
         
-        const deltaDate = (currentTime - postDate);
-        let hour = Math.floor(deltaDate /1000/60/60);
-        let minute = Math.floor(deltaDate/1000/60);
-        let seconds = Math.floor(deltaDate/1000);
-        console.log("formated diff date : " + hour + ":" + minute + ":" + seconds);
-        return postDate.getUTCFullYear().toString()+"-"+postDate.getUTCMonth().toString()+"-"+postDate.getUTCDay();
-    }
+        let parsedData = [];
+        const rssFeedList = jData.rss.channel.item;
 
-    
+        rssFeedList.forEach((news) => {
+          let tObj = {};
+          tObj['title'] = news.title;
+          tObj['url'] = news.link;
+          tObj['description'] = news.description;
+          tObj['pubDate'] = news.pubDate;
+          tObj['imgUrl'] = news['media:content'];
+          parsedData.push(tObj);
+        });
+
+        console.log(parsedData);
+        
+        this.setState({
+          data: parsedData
+        });
+
+      })
+  }
 
     render() {
 
+			const postTime = new PostTime();
         return(
             <div className="grid-container">
                 {
@@ -92,7 +68,7 @@ export class Rss extends React.Component {
                                    {news.description}
                                </div>
                                <div className="article-date">
-                                   {this.getTimeSincePost(news.pubDate)}
+                                   {postTime.formatDate((news.pubDate))}
                                </div>
                            </div>
                            </a>

@@ -1,4 +1,5 @@
 import React from 'react';
+import PostTime from '../util/PostTime';
 
 export class Article extends React.Component {
 
@@ -26,11 +27,9 @@ export class Article extends React.Component {
         return "https://www.nytimes.com/" + link;
     }
 
-    filterPubDate(pubDate){
-        return pubDate.slice(0, 10);
-    }
-
     render(){
+
+        const postTime = new PostTime();
         return(
             <div className="grid-container">
             {(this.state.data).map((article, i) => (
@@ -48,7 +47,7 @@ export class Article extends React.Component {
                             ))
                         }
                         <div className="article-snippet">{article.snippet}</div>
-                        <div className="article-date"> {this.filterPubDate(article.pub_date)}</div>
+                        <div className="article-date"> {postTime.formatDate(article.pub_date)}</div>
                     </div>
                     </a>
                 </div>
