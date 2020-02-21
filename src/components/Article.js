@@ -1,7 +1,8 @@
 import React from 'react';
 import PostTime from '../util/PostTime';
 
-export class Article extends React.Component {
+
+export default class Article extends React.Component {
 
     constructor(props) {
         super(props);

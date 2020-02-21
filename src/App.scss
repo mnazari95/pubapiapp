@@ -5,9 +5,19 @@ $color-pallate-3 : #2EC4B6;
 $color-pallate-4 : #E71D36;
 $color-pallate-5 : #FF9F1C;
 
-.app {
-  flex: 1 0 auto;
+@mixin useFlex {
   display: flex;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+}
+
+@mixin useGrid {
+  
+}
+
+.app {
+  @include useFlex;
+  flex: 1 0 auto;
   flex-direction: column;
 }
 

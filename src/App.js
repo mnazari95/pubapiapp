@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import './App.scss';
-import {Rss} from './components/Rss';
-import {Article} from './components/Article';
+import Rss from './components/Rss';
 import {Navbar} from './components/Navbar';
 import {Pagination} from './components/Pagination';
 import {FilterSearch} from './components/FilterSearch';
 import {Config} from './bin/config';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowDown, faArrowUp} from '@fortawesome/free-solid-svg-icons';
+const LazyArticle = React.lazy(() => import('./components/Article'));
 
 export class App extends React.Component {
 
@@ -30,7 +30,6 @@ export class App extends React.Component {
 
 		this.queryData = this.queryData.bind(this);
 		this.adjustPagination = this.adjustPagination.bind(this);
-
 	}
 
 	//toggle wether to show/hide filter search
@@ -261,7 +260,9 @@ export class App extends React.Component {
 				<Navbar retreiveData = {this.onSearch} />
 				{this.state.isFilterSearch ? <FilterSearch retreiveFilteredQuery = {this.onFilterSearch} toggleFilter={this.state.isFilterSearch} /> : null}
 				<button className="filter-btn" onClick={this.filterSearch}><FontAwesomeIcon icon={this.state.isFilterSearch ? faArrowUp:faArrowDown} /></button>
-				{this.state.isReady ? <Article res={this.state.res} /> : <Rss />}
+				<Suspense fallback={<div><img src="logo.svg"></img></div>}>
+					{this.state.isReady ? <LazyArticle res={this.state.res}/> : <Rss />}
+				</Suspense>
 				{this.state.isReady ? <Pagination retreivePage = {this.onPageChange} btnDetail = {this.state.pagination} lastPage = {this.state.lastPage}/> : null}
 			</div>
 		);

@@ -1,7 +1,7 @@
 import React from 'react';
 import PostTime from '../util/PostTime';
 
-export class Rss extends React.Component {
+export default class Rss extends React.Component {
 
   constructor(props){
     super(props);
