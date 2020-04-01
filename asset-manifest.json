@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/pubapiapp/static/css/main.2865f166.chunk.css",
-    "main.js": "/pubapiapp/static/js/main.e9fa83c2.chunk.js",
-    "main.js.map": "/pubapiapp/static/js/main.e9fa83c2.chunk.js.map",
+    "main.js": "/pubapiapp/static/js/main.733a200c.chunk.js",
+    "main.js.map": "/pubapiapp/static/js/main.733a200c.chunk.js.map",
     "runtime-main.js": "/pubapiapp/static/js/runtime-main.be65325b.js",
     "runtime-main.js.map": "/pubapiapp/static/js/runtime-main.be65325b.js.map",
     "static/js/2.a4562048.chunk.js": "/pubapiapp/static/js/2.a4562048.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.8746e8e0.chunk.js": "/pubapiapp/static/js/3.8746e8e0.chunk.js",
     "static/js/3.8746e8e0.chunk.js.map": "/pubapiapp/static/js/3.8746e8e0.chunk.js.map",
     "index.html": "/pubapiapp/index.html",
-    "precache-manifest.f271b54dbcfb27923d98db581cb93799.js": "/pubapiapp/precache-manifest.f271b54dbcfb27923d98db581cb93799.js",
+    "precache-manifest.d44a2b8dd784420fc71a0aee2f7467e5.js": "/pubapiapp/precache-manifest.d44a2b8dd784420fc71a0aee2f7467e5.js",
     "service-worker.js": "/pubapiapp/service-worker.js",
     "static/css/main.2865f166.chunk.css.map": "/pubapiapp/static/css/main.2865f166.chunk.css.map",
     "static/js/2.a4562048.chunk.js.LICENSE": "/pubapiapp/static/js/2.a4562048.chunk.js.LICENSE"
@@ -19,6 +19,6 @@
     "static/js/runtime-main.be65325b.js",
     "static/js/2.a4562048.chunk.js",
     "static/css/main.2865f166.chunk.css",
-    "static/js/main.e9fa83c2.chunk.js"
+    "static/js/main.733a200c.chunk.js"
   ]
 }
