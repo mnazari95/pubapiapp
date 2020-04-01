@@ -2,7 +2,7 @@ import React from 'react';
 import PostTime from '../util/PostTime';
 import {Config} from '../bin/config';
 
-export default class Rss extends React.Component {
+export default class MostPopular extends React.Component {
 
   constructor(props){
     super(props);

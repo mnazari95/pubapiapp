@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import './App.scss';
-import Rss from './components/Rss';
+import MostPopular from './components/MostPopular';
 import {Navbar} from './components/Navbar';
 import {Pagination} from './components/Pagination';
 import {FilterSearch} from './components/FilterSearch';
@@ -261,7 +261,7 @@ export class App extends React.Component {
 				{this.state.isFilterSearch ? <FilterSearch retreiveFilteredQuery = {this.onFilterSearch} toggleFilter={this.state.isFilterSearch} /> : null}
 				<button className="filter-btn" onClick={this.filterSearch}><FontAwesomeIcon icon={this.state.isFilterSearch ? faArrowUp:faArrowDown} /></button>
 				<Suspense fallback={<div><img src="logo.svg" alt=""></img></div>}>
-					{this.state.isReady ? <LazyArticle res={this.state.res}/> : <Rss />}
+					{this.state.isReady ? <LazyArticle res={this.state.res}/> : <MostPopular />}
 				</Suspense>
 				{this.state.isReady ? <Pagination retreivePage = {this.onPageChange} btnDetail = {this.state.pagination} lastPage = {this.state.lastPage}/> : null}
 			</div>
