@@ -260,7 +260,7 @@ export class App extends React.Component {
 				<Navbar retreiveData = {this.onSearch} />
 				{this.state.isFilterSearch ? <FilterSearch retreiveFilteredQuery = {this.onFilterSearch} toggleFilter={this.state.isFilterSearch} /> : null}
 				<button className="filter-btn" onClick={this.filterSearch}><FontAwesomeIcon icon={this.state.isFilterSearch ? faArrowUp:faArrowDown} /></button>
-				<Suspense fallback={<div><img src="logo.svg"></img></div>}>
+				<Suspense fallback={<div><img src="logo.svg" alt=""></img></div>}>
 					{this.state.isReady ? <LazyArticle res={this.state.res}/> : <Rss />}
 				</Suspense>
 				{this.state.isReady ? <Pagination retreivePage = {this.onPageChange} btnDetail = {this.state.pagination} lastPage = {this.state.lastPage}/> : null}
