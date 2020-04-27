@@ -106,15 +106,14 @@ export class App extends React.Component {
 		}
 		const lPage = (pageObj.length - 1);
 
-		if(pageNumber >= 4 && pageNumber <= 94){
-			const five = 5;
-			let a = pageNumber - five;
-			let b = pageNumber + five;
-			
+		if(pageNumber >= 5 && pageNumber <= 93){
+			const moveBy = 5;
+			const a = pageNumber - moveBy;
+			const b = pageNumber + moveBy;
 			mArr = pageObj.slice(a,b);
-		}else if (pageNumber > 94){
+		}else if (pageNumber > 93){
 			mArr = pageObj.slice(90,100);
-		}else if (pageNumber < 4){
+		}else if (pageNumber < 5){
 			mArr = pageObj.slice(0, 10);
 		}
 		

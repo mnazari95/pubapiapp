@@ -37,11 +37,11 @@ export class Pagination extends React.Component {
 
         return(
             <div className="page-list">
-                <button className="page-item" onClick={this.sendPage} value={0}>first</button>
+                <button className="page-item" onClick={this.sendPage} value={0}>FIRST</button>
                 {(this.state.pages).map((pagBtn, i) => (
                 <button key={i} className="page-item" onClick={this.sendPage} value={pagBtn-1}>{pagBtn}</button>
                 ))}
-                <button className="page-item" onClick={this.sendPage} value={this.state.lastPage}>last</button>
+                <button className="page-item" onClick={this.sendPage} value={this.state.lastPage}>LAST</button>
             </div>
         );
     }
