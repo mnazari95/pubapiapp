@@ -1,5 +1,5 @@
 ### New York Times Article Searcher
-Built using React JS with help of NYT API. The api docs can be found https://developer.nytimes.com/apis , a live demo of this application can be viewed at https://mnazari95.github.io/pubapiapp/ . This was tested/developed for the latest version of chrome web browser and have not been tested for browsers such as safari/opera/etc.. (there might be a slight visual differences if these other browsers are used)
+Built using React JS with help of NYT API. The api docs can be found https://developer.nytimes.com/apis , a live demo of this application can be viewed at https://mnazari95.github.io/pubapiapp/ . This was tested/developed for the latest version of chrome web browser
 
 ### Features
 
