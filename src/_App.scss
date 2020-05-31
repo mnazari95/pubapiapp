@@ -11,49 +11,50 @@ $color-pallate-5 : #FF9F1C;
   display: -webkit-flex;
 }
 
-@mixin useGrid {
-  
-}
-
 .app {
   @include useFlex;
   flex: 1 0 auto;
   flex-direction: column;
 }
 
+@mixin centerItem {
+  align-self: center;
+  height: 2.5em;
+  padding: 0 0.5em;
+  margin: 0 0;
+  border: solid 0.1px black;
+}
 /*SEARCH BAR*/
-.flex-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  align-items: center;
+.navwrapper {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr 0.2fr 1fr;
+  gap: 0;
+  grid-template-rows: 3em;
   background: $color-pallate-3;
-  height: 3.7em;
-  overflow: hidden;
+  
+
+  .search-bar {
+    grid-column: 2/3;
+    @include centerItem();
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+  }
+
+  .search-btn {
+    grid-column: 3/4;
+    @include centerItem();
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-left: none;
+    background: $color-pallate-5;
+    
+  }
 }
 
-.search-bar {
-  width: 21.7em;
-  border: none;
-  padding: 0.75em;
-  border-top-left-radius: 0.3125em;
-  border-bottom-left-radius: 0.3125em;
-  font-size: 0.8125em;
-}
-
-.search-btn {
-  border: none;
-  border-left: black 0.0625em solid;
-  background-color:$color-pallate-5;
-  padding: 0.75em;
-  border-top-right-radius: 0.3125em;
-  border-bottom-right-radius: 0.3125em;
-  font-weight: bold;
-}
 
 input:focus {
-  background-color:$color-pallate-5;  
+  color: black;
+  background-color:$color-pallate-5;
 }
 
 /*FILTER SECTION*/
@@ -91,6 +92,8 @@ input:focus {
 
 .filter-btn {
   border: none;
+  padding: 0 0;
+  margin: 0 0;
   background-color:$color-pallate-3;
 }
 

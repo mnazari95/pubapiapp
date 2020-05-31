@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react';
-import './App.scss';
 import MostPopular from './components/MostPopular';
 import {Navbar} from './components/Navbar';
 import {Pagination} from './components/Pagination';
@@ -258,7 +257,7 @@ export class App extends React.Component {
 			<div className="app">
 				<Navbar retreiveData = {this.onSearch} />
 				{this.state.isFilterSearch ? <FilterSearch retreiveFilteredQuery = {this.onFilterSearch} toggleFilter={this.state.isFilterSearch} /> : null}
-				<button className="filter-btn" onClick={this.filterSearch}><FontAwesomeIcon icon={this.state.isFilterSearch ? faArrowUp:faArrowDown} /></button>
+				<button className="filter-btn" title="filter" onClick={this.filterSearch}><FontAwesomeIcon icon={this.state.isFilterSearch ? faArrowUp:faArrowDown} /></button>
 				<Suspense fallback={<div><img src="logo.svg" alt=""></img></div>}>
 					{this.state.isReady ? <LazyArticle res={this.state.res}/> : <MostPopular />}
 				</Suspense>

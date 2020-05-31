@@ -40,10 +40,14 @@ export class Navbar extends React.Component {
 
 	render() {
 		return(
-            <div className="flex-container">
-                    <input className="search-bar" type="text" placeholder="search here.." onChange={this.userInput} onKeyPress={this.isEnterPressed}></input>
-                    <button className="search-btn" onClick={this.sendQuery}><FontAwesomeIcon icon={faSearch} /></button>
-            </div>
+            // <div className="flex-container">
+            //         <input className="search-bar" type="text" placeholder="search here.." onChange={this.userInput} onKeyPress={this.isEnterPressed}></input>
+            //         <button className="search-btn" onClick={this.sendQuery} title="Search"><FontAwesomeIcon icon={faSearch} /></button>
+			// </div>
+			<div className="navwrapper">
+				<input className="search-bar" type="text" placeholder="search here.." onChange={this.userInput} onKeyPress={this.isEnterPressed}/>
+				<button className="search-btn" onClick={this.sendQuery} title="search"><FontAwesomeIcon icon={faSearch} /></button>
+			</div>
 		);
 	}
 }
