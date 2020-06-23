@@ -11,6 +11,7 @@ export default class MostPopular extends React.Component {
       data: []
     }
 
+    
   }
 
   componentDidMount(){
@@ -33,8 +34,13 @@ export default class MostPopular extends React.Component {
 
     render() {
 
-			const postTime = new PostTime();
+      const postTime = new PostTime();
+
         return(
+          <div>
+            <h1 className="header">
+                Most Popular
+            </h1>
             <div className="grid-container">
                 {
                    this.state.data.map((news, i) => (
@@ -58,6 +64,7 @@ export default class MostPopular extends React.Component {
                        </div>
                    )) 
                 }
+            </div>
             </div>
         );
     }

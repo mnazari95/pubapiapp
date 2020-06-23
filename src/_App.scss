@@ -70,6 +70,7 @@ input:focus {
   justify-content: space-evenly;
   background-color:$color-pallate-3;
   animation: filterbackground 2s forwards;
+  //transition: height 2s;
 }
 
 .filter-options {
@@ -111,6 +112,12 @@ input:focus {
   outline: none;
 }
 
+.header {
+  color: white;
+  
+  padding: 0.1em 0;
+  text-align: center;
+}
 /*NEWS CARD*/
 .grid-container {
   display: grid;

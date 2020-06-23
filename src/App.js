@@ -6,6 +6,7 @@ import {FilterSearch} from './components/FilterSearch';
 import {Config} from './bin/config';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowDown, faArrowUp} from '@fortawesome/free-solid-svg-icons';
+import StringModifier from './util/StringModifier';
 const LazyArticle = React.lazy(() => import('./components/Article'));
 
 export class App extends React.Component {
@@ -124,10 +125,7 @@ export class App extends React.Component {
 
 	}
 
-	//changes format from YYYY-MM-DD to YYYYMMDD
-	formatDate = (str) => {
-		return str.replace(/-/g, "");
-	}
+	
 
 	//can replace Config.getApiKey() with your own api key from https://developer.nytimes.com/
 	processFetch = (queryParam) => {
@@ -142,8 +140,8 @@ export class App extends React.Component {
 			//filter search based on date
 			if(this.state.filterObj.sDate !== "" && this.state.filterObj.eDate){
 				//call date format to remove hyphenes
-				startDate = "&begin_date=" + this.formatDate(this.state.filterObj.sDate);
-				endDate = "&end_date=" + this.formatDate(this.state.filterObj.eDate);
+				startDate = "&begin_date=" + StringModifier.formatDate(this.state.filterObj.sDate);
+				endDate = "&end_date=" + StringModifier.formatDate(this.state.filterObj.eDate);
 
 			}
 			

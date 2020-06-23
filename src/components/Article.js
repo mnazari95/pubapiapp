@@ -1,7 +1,6 @@
 import React from 'react';
 import PostTime from '../util/PostTime';
 
-
 export default class Article extends React.Component {
 
     constructor(props) {
@@ -11,6 +10,8 @@ export default class Article extends React.Component {
             isLoaded: false,
             data: []
         };
+
+        
     }
 
 	static getDerivedStateFromProps(props, state){
@@ -24,6 +25,7 @@ export default class Article extends React.Component {
         
 	}
 
+    
     getBaseUrl(link){
         return "https://www.nytimes.com/" + link;
     }
@@ -31,6 +33,7 @@ export default class Article extends React.Component {
     render(){
 
         const postTime = new PostTime();
+
         return(
             <div className="grid-container">
             {(this.state.data).map((article, i) => (
