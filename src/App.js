@@ -140,8 +140,8 @@ export class App extends React.Component {
 			//filter search based on date
 			if(this.state.filterObj.sDate !== "" && this.state.filterObj.eDate){
 				//call date format to remove hyphenes
-				startDate = "&begin_date=" + StringModifier.formatDate(this.state.filterObj.sDate);
-				endDate = "&end_date=" + StringModifier.formatDate(this.state.filterObj.eDate);
+				startDate = "&begin_date=" + StringModifier.formatFilteredDate(this.state.filterObj.sDate);
+				endDate = "&end_date=" + StringModifier.formatFilteredDate(this.state.filterObj.eDate);
 
 			}
 			
