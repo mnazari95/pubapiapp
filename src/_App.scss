@@ -177,13 +177,15 @@ img {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 0em;
+  margin-bottom: 1em;
   padding: 0em;
 }
 
 .page-item {
   list-style-type: none;
   margin: 0.2em;
+  padding: 0.5em 1em;
+  font-size: medium;
   background-color:$color-pallate-3;
   border: none;
 }

@@ -57,7 +57,7 @@ export default class MostPopular extends React.Component {
                                    {news.abstract ? news.abstract : "N/A"}
                                </div>
                                <div className="article-date">
-                                   {postTime.formatDate((news.updated))}
+                                   {postTime.formatDate((news.published_date))}
                                </div>
                            </div>
                            </a>
