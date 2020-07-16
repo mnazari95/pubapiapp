@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import MostPopular from './components/MostPopular';
 import {Navbar} from './components/Navbar';
 import {Pagination} from './components/Pagination';
@@ -7,7 +7,7 @@ import {Config} from './bin/config';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowDown, faArrowUp} from '@fortawesome/free-solid-svg-icons';
 import StringModifier from './util/StringModifier';
-const LazyArticle = React.lazy(() => import('./components/Article'));
+import Article from './components/Article';
 
 export class App extends React.Component {
 
@@ -256,9 +256,7 @@ export class App extends React.Component {
 				<Navbar retreiveData = {this.onSearch} />
 				{this.state.isFilterSearch ? <FilterSearch retreiveFilteredQuery = {this.onFilterSearch} toggleFilter={this.state.isFilterSearch} /> : null}
 				<button className="filter-btn" title="filter" onClick={this.filterSearch}><FontAwesomeIcon icon={this.state.isFilterSearch ? faArrowUp:faArrowDown} /></button>
-				<Suspense fallback={<div><img src="logo.svg" alt=""></img></div>}>
-					{this.state.isReady ? <LazyArticle res={this.state.res}/> : <MostPopular />}
-				</Suspense>
+					{this.state.isReady ? <Article res={this.state.res}/> : <MostPopular />}
 				{this.state.isReady ? <Pagination retreivePage = {this.onPageChange} btnDetail = {this.state.pagination} lastPage = {this.state.lastPage}/> : null}
 			</div>
 		);

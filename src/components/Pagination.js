@@ -39,7 +39,9 @@ export class Pagination extends React.Component {
             <div className="page-list">
                 <button className="page-item" onClick={this.sendPage} value={0}>FIRST</button>
                 {(this.state.pages).map((pagBtn, i) => (
-                <button key={i} className="page-item" onClick={this.sendPage} value={pagBtn-1}>{pagBtn}</button>
+                    <div key={i}>
+                        <button className="page-item" onClick={this.sendPage} value={pagBtn-1}>{pagBtn}</button>
+                    </div>
                 ))}
                 <button className="page-item" onClick={this.sendPage} value={this.state.lastPage}>LAST</button>
             </div>

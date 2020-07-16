@@ -43,14 +43,14 @@ export default class MostPopular extends React.Component {
             </h1>
             <div className="grid-container">
                 {
-                   this.state.data.map((news, i) => (
-                       <div key={i} className="article">
+                   this.state.data.map(news => (
+                       <div key={news.id} className="article">
                            <a href={news.url} className="page-link" rel="noopener noreferrer" target="_blank">
                            <div className="article-box">
                                <div className="article-title">
                                    {news.title}
                                    <div className="article-img">
-                                      <img src={news.media ? news.media.map(media => media['media-metadata'][2].url): null} alt=""></img>
+                                      {news.media ? news.media.map((media, i) => (<img key={i} src={media['media-metadata'][2].url} alt={media.caption}></img>)) : null}
                                    </div>
                                </div>
                                <div className="article-snippet">

@@ -25,23 +25,26 @@ export default class Article extends React.Component {
         
 	}
 
-    
+    trimDate = (date) => {
+        const postTime = new PostTime();
+        const trimmedDate = date.slice(0,10);
+        return postTime.formatDate(trimmedDate);
+
+    }
     getBaseUrl(link){
         return "https://www.nytimes.com/" + link;
     }
 
     render(){
 
-        const postTime = new PostTime();
 
         return(
             <div className="grid-container">
-            {(this.state.data).map((article, i) => (
+            {(this.state.data).map(article => (
                 
-                <div key={i} className="article">
-                <a href={article.web_url} className="page-link"  rel="noopener noreferrer" target="_blank">
-                <div className="article-box">
-                        
+                <div key={article._id} className="article">
+                    <a href={article.web_url} className="page-link"  rel="noopener noreferrer" target="_blank">
+                    <div className="article-box"> 
                     <div className="article-title">{article.headline.main}</div>
                         {
                             (article.multimedia).filter(pic => (pic.subType === "xlarge")).map((img, i) => (
@@ -51,7 +54,7 @@ export default class Article extends React.Component {
                             ))
                         }
                         <div className="article-snippet">{article.snippet}</div>
-                        <div className="article-date"> {postTime.formatDate(article.pub_date)}</div>
+                        <div className="article-date"> {this.trimDate(article.pub_date)}</div>
                     </div>
                     </a>
                 </div>
