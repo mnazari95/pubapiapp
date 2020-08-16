@@ -8,7 +8,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowDown, faArrowUp} from '@fortawesome/free-solid-svg-icons';
 import StringModifier from './util/StringModifier';
 import Article from './components/Article';
-import SavedArticle from './components/sub/SavedArticle';
+import SavedArticle from './components/SavedArticle';
 
 export class App extends React.Component {
 
