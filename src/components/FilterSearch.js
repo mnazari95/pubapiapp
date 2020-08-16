@@ -148,12 +148,17 @@ export class FilterSearch extends React.Component {
                                 ))
                             }
                         </div>
+                        
+                    </div>
+                    <div className="filter-options">
                         <div className="option-element"><label>Sort by</label></div>
                         <div className="option-element">
                         <input type="date" placeholder="start yyyy-mm-dd" name="sdate" onChange={this.inputEvent}></input>
                         </div>
                         <div className="option-element">
                             <input type="date" placeholder="end yyyy-mm-dd" name="edate" onChange={this.inputEvent}></input>
+                        </div>
+                        <div className="option-element">
                             <select className="filter-selector" onChange={this.handleSort}>
                                 <option value="relevance">relevance</option>
                                 <option value="oldest">old</option>

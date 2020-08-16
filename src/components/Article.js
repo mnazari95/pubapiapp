@@ -1,5 +1,7 @@
 import React from 'react';
 import PostTime from '../util/PostTime';
+import {faPlusCircle} from '@fortawesome/free-solid-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 export default class Article extends React.Component {
 
@@ -8,10 +10,10 @@ export default class Article extends React.Component {
         this.state = {
             error : null,
             isLoaded: false,
-            data: []
+            data: [],
+            favoriteArticles: []
         };
 
-        
     }
 
 	static getDerivedStateFromProps(props, state){
@@ -23,7 +25,40 @@ export default class Article extends React.Component {
         }
         return null;
         
-	}
+    }
+    
+    componentDidMount() {
+        //load state with localstorage data
+        if (window.localStorage.getItem("articles") !== null) {
+            this.setState({
+                favoriteArticles: JSON.parse(window.localStorage.getItem("articles"))
+            })
+        }
+    }
+
+    componentWillUnmount() {
+        //save state to localstorage
+        window.localStorage.setItem("articles", JSON.stringify(this.state.favoriteArticles));
+    }
+
+    saveArticle = (article) => {
+        
+        const saveArticle = {
+            id: article._id,
+            title: article.headline.main,
+            link: article.web_url,
+            media: {
+              url: article.multimedia ? article.multimedia.filter(pic => (pic.subType === "xlarge")).map(img => this.getBaseUrl(img.url)): null,
+              caption: null
+            },
+            snippet: article.snippet ? article.snippet: "none",
+            publishedDate: this.trimDate(article.pub_date),
+        
+          }
+        this.setState({
+            favoriteArticles: this.state.favoriteArticles.concat(saveArticle)
+        },()=> this.props.updateFavArticles(saveArticle))
+    }
 
     trimDate = (date) => {
         const postTime = new PostTime();
@@ -57,6 +92,7 @@ export default class Article extends React.Component {
                         <div className="article-date"> {this.trimDate(article.pub_date)}</div>
                     </div>
                     </a>
+                    <button className="save-article" title="save article" onClick={() => this.saveArticle(article)}><FontAwesomeIcon icon={faPlusCircle}></FontAwesomeIcon></button>
                 </div>
                 
             ))}

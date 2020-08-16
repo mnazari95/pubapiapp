@@ -8,6 +8,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowDown, faArrowUp} from '@fortawesome/free-solid-svg-icons';
 import StringModifier from './util/StringModifier';
 import Article from './components/Article';
+import SavedArticle from './components/sub/SavedArticle';
 
 export class App extends React.Component {
 
@@ -16,6 +17,7 @@ export class App extends React.Component {
 
 		this.state = {
 			isReady: false,
+			showMostPopular: false,
 			isFilterSearch: false,
 			page: 0,
 			numOfArticle: 0,
@@ -24,6 +26,7 @@ export class App extends React.Component {
 			userQuery: "",
 			res: [],
 			pagination: [],
+			favoritedArticles: [],
 			filterObj: {sections: [], filter: [], sDate: "", eDate: "", sort: ""},
 			err: null
 		}
@@ -70,6 +73,27 @@ export class App extends React.Component {
 			}
 		);
 	};
+
+	openMostPopular = () => {
+		this.setState({
+			isReady: false,
+			showMostPopular: true
+		})
+	}
+
+	openSavedArticles = () => {
+		this.setState({
+			isReady: false,
+			showMostPopular: false
+		})
+	}
+
+	updateFavlist = (favList) => {
+
+		this.setState({
+			favoritedArticles: this.state.favoritedArticles.concat(favList)
+		});
+	}
 
 	onPageChange = (inPage) => {
 		this.setState(
@@ -123,9 +147,7 @@ export class App extends React.Component {
 			lastPage: lPage
 		});
 
-	}
-
-	
+	}	
 
 	//can replace Config.getApiKey() with your own api key from https://developer.nytimes.com/
 	processFetch = (queryParam) => {
@@ -208,7 +230,7 @@ export class App extends React.Component {
 				error => {
 					this.setState({
 						err: error,
-						isReady: true
+						isReady: false
 					});
 				}
 			).then(
@@ -239,7 +261,7 @@ export class App extends React.Component {
 				error => {
 					this.setState({
 						err: error,
-						isReady: true
+						isReady: false
 					});
 				}
 			).then(
@@ -253,10 +275,10 @@ export class App extends React.Component {
 
 		return (
 			<div className="app">
-				<Navbar retreiveData = {this.onSearch} />
+				<Navbar retreiveData = {this.onSearch} openPopular={this.openMostPopular} openFavourite={this.openSavedArticles}/>
 				{this.state.isFilterSearch ? <FilterSearch retreiveFilteredQuery = {this.onFilterSearch} toggleFilter={this.state.isFilterSearch} /> : null}
 				<button className="filter-btn" title="filter" onClick={this.filterSearch}><FontAwesomeIcon icon={this.state.isFilterSearch ? faArrowUp:faArrowDown} /></button>
-					{this.state.isReady ? <Article res={this.state.res}/> : <MostPopular />}
+					{this.state.isReady ? <Article res={this.state.res} updateFavArticles={this.updateFavlist}/> : this.state.showMostPopular ? <MostPopular updateFavArticles={this.updateFavlist}/> : <SavedArticle favArticles={this.state.favoritedArticles}/>}
 				{this.state.isReady ? <Pagination retreivePage = {this.onPageChange} btnDetail = {this.state.pagination} lastPage = {this.state.lastPage}/> : null}
 			</div>
 		);

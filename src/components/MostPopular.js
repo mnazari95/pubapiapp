@@ -1,6 +1,8 @@
 import React from 'react';
 import PostTime from '../util/PostTime';
 import {Config} from '../bin/config';
+import {faPlusCircle} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class MostPopular extends React.Component {
 
@@ -8,10 +10,9 @@ export default class MostPopular extends React.Component {
     super(props);
 
     this.state = {
-      data: []
+      data: [],
+      favoriteArticles: []
     }
-
-    
   }
 
   componentDidMount(){
@@ -29,8 +30,40 @@ export default class MostPopular extends React.Component {
           data: res.results
         })
       })
-        
+    
+    
+    if (window.localStorage.getItem("articles") !== null) {
+      this.setState({
+        favoriteArticles: JSON.parse(window.localStorage.getItem("articles"))
+      })
+    }
   }
+
+componentWillUnmount() {
+  //save state to localstorage
+  window.localStorage.setItem("articles", JSON.stringify(this.state.favoriteArticles));
+}
+
+saveArticle = (article) => {
+
+  const pTime = new PostTime();
+  
+  const saveArticle = {
+    id: article.id,
+    title: article.title,
+    link: article.url,
+    media: {
+      url: article.media ? article.media.map(img => img['media-metadata'][2].url): null,
+      caption: article.media ? article.media.map(img => img.caption):null
+    },
+    snippet: article.abstract ? article.abstract: "none",
+    publishedDate: pTime.formatDate(article.published_date),
+
+  }
+  this.setState({
+      favoriteArticles: this.state.favoriteArticles.concat(saveArticle)
+  },()=> this.props.updateFavArticles(saveArticle))
+}
 
     render() {
 
@@ -61,6 +94,7 @@ export default class MostPopular extends React.Component {
                                </div>
                            </div>
                            </a>
+                           <button className="save-article" title="save article" onClick={() => this.saveArticle(news)}><FontAwesomeIcon icon={faPlusCircle}></FontAwesomeIcon></button>
                        </div>
                    )) 
                 }

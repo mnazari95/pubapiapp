@@ -10,13 +10,6 @@ $color-pallate-5 : #FF9F1C;
   display: -ms-flexbox;
   display: -webkit-flex;
 }
-
-.app {
-  @include useFlex;
-  flex: 1 0 auto;
-  flex-direction: column;
-}
-
 @mixin centerItem {
   align-self: center;
   height: 2.5em;
@@ -24,30 +17,50 @@ $color-pallate-5 : #FF9F1C;
   margin: 0 0;
   border: solid 0.1px black;
 }
+.app {
+  @include useFlex;
+  flex: 1 0 auto;
+  flex-direction: column;
+}
+
 /*SEARCH BAR*/
 .navwrapper {
   display: grid;
-  grid-template-columns: 1fr 0.8fr 0.2fr 1fr;
+  grid-template-columns: 1fr 0.1fr 0.1fr 0.8fr 0.2fr 1fr;
   gap: 0;
   grid-template-rows: 3em;
   background: $color-pallate-3;
   
-
-  .search-bar {
+  .popular-btn {
     grid-column: 2/3;
     @include centerItem();
+    border-right: none;
+    background: $color-pallate-5;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
+
+  }
+
+  .favourite-btn {
+    grid-column: 3/4;
+    @include centerItem();
+    border-right: none;
+    background: $color-pallate-5;
   }
 
   .search-btn {
-    grid-column: 3/4;
+    grid-column: 5/6;
     @include centerItem();
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     border-left: none;
     background: $color-pallate-5;
     
+  }
+  .search-bar {
+    grid-column: 4/5;
+    @include centerItem();
+    z-index: 1;
   }
 }
 
@@ -87,7 +100,7 @@ input:focus {
   flex-shrink: 2;
 }
 
-.checkbox-list {
+.checkbox-list:hover {
   overflow-y:scroll;
 }
 
@@ -131,6 +144,15 @@ input:focus {
   border: 0.125em solid $color-pallate-1;
   background:$color-pallate-2;
   border-radius: 0.3125em;
+}
+.save-article {
+  margin: 0.4em 0.1em;
+  border: solid 0.1em;
+  border-radius: 0.5em;
+  background: $color-pallate-3;
+}
+.save-article:hover {
+  background: $color-pallate-5;
 }
 .article-box {
   display: flex;
@@ -183,8 +205,8 @@ img {
 
 .page-item {
   list-style-type: none;
-  margin: 0.2em;
-  padding: 0.5em 1em;
+  margin: 0.2em 0.2em;
+  padding: 0.4em 0.8em;
   font-size: medium;
   background-color:$color-pallate-3;
   border: none;
@@ -206,12 +228,12 @@ a.page-link {
 
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 2px $color-pallate-3;
-  border-radius: 10px;
+  //border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: $color-pallate-2;
-  border-radius: 5px;
+  //border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
