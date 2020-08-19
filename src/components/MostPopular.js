@@ -60,9 +60,24 @@ saveArticle = (article) => {
     publishedDate: pTime.formatDate(article.published_date),
 
   }
-  this.setState({
+
+  //check if article is already saved 'based on url link'
+  let bool = false;
+  for (let i = 0; i < this.state.favoriteArticles.length; i++){
+    
+    if (saveArticle.link === this.state.favoriteArticles[i].link){
+      window.alert('article already saved.');
+      bool = true;
+      break;
+    }
+
+  }
+  if (!bool){
+    this.setState({
       favoriteArticles: this.state.favoriteArticles.concat(saveArticle)
-  },()=> this.props.updateFavArticles(saveArticle))
+    },()=> this.props.updateFavArticles(saveArticle))
+  }
+  
 }
 
     render() {

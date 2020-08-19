@@ -21,6 +21,7 @@ $color-pallate-5 : #FF9F1C;
   @include useFlex;
   flex: 1 0 auto;
   flex-direction: column;
+  justify-items: center;
 }
 
 /*SEARCH BAR*/
@@ -127,7 +128,6 @@ input:focus {
 
 .header {
   color: white;
-  
   padding: 0.1em 0;
   text-align: center;
 }
@@ -135,7 +135,6 @@ input:focus {
 .grid-container {
   display: grid;
   grid-template-columns: auto auto auto auto;
-  grid-gap: 1.2em;
   margin: 1.2em 1.2em;
 }
 .grid-container > div {
@@ -275,7 +274,6 @@ a.page-link {
   .grid-container {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
-    grid-gap: 1.2em;
     margin: 1.2em 1.2em;
   }
 }
@@ -284,7 +282,6 @@ a.page-link {
   .grid-container {
     display: grid;
     grid-template-columns: auto auto;
-    grid-gap: 1.2em;
     margin: 1.2em 1.2em;
   }
 }

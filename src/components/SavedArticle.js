@@ -24,12 +24,22 @@ export default class SavedArticle extends React.Component {
         window.localStorage.setItem("articles", JSON.stringify(this.state.listOfArticle));
     }
 
-    saveArticle = (article) => {
-        
+    removeArticle = (article) => {
 
-        this.setState({
-            listOfArticle: this.state.listOfArticle.concat(article)
-        })
+        let tempArr = [...this.state.listOfArticle];
+        let index;
+        index = tempArr.indexOf(article);
+        if (index !== -1){
+            tempArr.splice(index, 1);
+            this.setState({
+                listOfArticle: tempArr
+            })
+        }
+        
+    }
+
+    getGridColumn = () => {
+        return this.state.listOfArticle.length - 1;
     }
 
     render() {
@@ -38,7 +48,7 @@ export default class SavedArticle extends React.Component {
                 <h1 className="header">
                 Saved Articles
                 </h1>
-                <div className="grid-container">
+                <div className="grid-container" style={{gridTemplateColumns: `repeat(${this.getGridColumn},auto)`}}>
                 {
                    this.state.listOfArticle.map(news => (
                        <div key={news.id} className="article">
@@ -58,6 +68,7 @@ export default class SavedArticle extends React.Component {
                                </div>
                            </div>
                            </a>
+                            <button onClick={() => this.removeArticle(news)}>remove</button>
                        </div>
                    )) 
                 }
