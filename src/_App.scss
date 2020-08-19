@@ -153,6 +153,15 @@ input:focus {
 .save-article:hover {
   background: $color-pallate-5;
 }
+.remove-article {
+  margin: 0.4em 0.1em;
+  border: solid 0.1em;
+  border-radius: 0.5em;
+  background: $color-pallate-3;
+}
+.remove-article:hover {
+  background: $color-pallate-4;
+}
 .article-box {
   display: flex;
   flex-direction: column;

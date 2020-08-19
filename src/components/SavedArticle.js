@@ -1,4 +1,6 @@
 import React from 'react';
+import {faMinusCircle} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default class SavedArticle extends React.Component {
 
@@ -68,7 +70,7 @@ export default class SavedArticle extends React.Component {
                                </div>
                            </div>
                            </a>
-                            <button onClick={() => this.removeArticle(news)}>remove</button>
+                            <button className="remove-article" onClick={() => this.removeArticle(news)}><FontAwesomeIcon icon={faMinusCircle}></FontAwesomeIcon></button>
                        </div>
                    )) 
                 }
