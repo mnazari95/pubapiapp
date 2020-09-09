@@ -1,8 +1,10 @@
+### LIVE DEMO
+https://mnazari95.github.io/pubapiapp/
+
 ### New York Times Article Searcher
-Built using React JS with help of NYT API. The api docs can be found https://developer.nytimes.com/apis , a live demo of this application can be viewed at https://mnazari95.github.io/pubapiapp/ . This was tested/developed for the latest version of chrome web browser
+Built using React JS with help of NYT API. The api docs can be found https://developer.nytimes.com/apis , this was tested/developed for the latest version of chrome web browser
 
 ### Features
-
 1. Most popular api
     - displays current most viewed articles of the day (essentially presented as user first visits the app)
 2. Article Searcher
@@ -10,7 +12,9 @@ Built using React JS with help of NYT API. The api docs can be found https://dev
 3. Filtered Search
     - if users would like to filter their results, they simply can open the filter search by clicking onto the arrow down button.
     -to disable filtered search they simply need to collapse the filtered search panel by clicking onto arrow up button
-4. Pagination
+4. Saved Articles
+    - users can save any article into their localStorage in which they can access anytime (so long as they do not clear their browser's localStorage), even if the api reaches its monthly quota
+5. Pagination
     -paginates if the searched results are more than 10
 
 ### Possible Issues
