@@ -35,6 +35,7 @@ $color-pallate-5 : #FF9F1C;
   .popular-btn {
     grid-column: 2/3;
     @include centerItem();
+    padding: 0.5em 1em;
     border-right: none;
     background: $color-pallate-5;
     border-top-left-radius: 3px;
@@ -45,6 +46,7 @@ $color-pallate-5 : #FF9F1C;
   .favourite-btn {
     grid-column: 3/4;
     @include centerItem();
+    padding: 0.5em 1em;
     border-right: none;
     background: $color-pallate-5;
   }
@@ -52,6 +54,7 @@ $color-pallate-5 : #FF9F1C;
   .search-btn {
     grid-column: 5/6;
     @include centerItem();
+    padding: 0.5em 1em;
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
     border-left: none;
@@ -68,7 +71,6 @@ $color-pallate-5 : #FF9F1C;
 
 input:focus {
   color: black;
-  background-color:$color-pallate-5;
 }
 
 /*FILTER SECTION*/
@@ -146,6 +148,7 @@ input:focus {
 }
 .save-article {
   margin: 0.4em 0.1em;
+  padding: 0.3em 0.4em;
   border: solid 0.1em;
   border-radius: 0.5em;
   background: $color-pallate-3;
@@ -155,6 +158,7 @@ input:focus {
 }
 .remove-article {
   margin: 0.4em 0.1em;
+  padding: 0.3em 0.4em;
   border: solid 0.1em;
   border-radius: 0.5em;
   background: $color-pallate-3;
