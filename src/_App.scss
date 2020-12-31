@@ -12,10 +12,15 @@ $color-pallate-5 : #FF9F1C;
 }
 @mixin centerItem {
   align-self: center;
-  height: 2.5em;
-  padding: 0 0.5em;
+  height: 2.5rem;
+  padding: 0 0;
   margin: 0 0;
   border: solid 0.1px black;
+}
+@mixin inputReact {
+  &:hover, &:active, &:focus {
+    background: #FDFFFC;
+  }
 }
 .app {
   @include useFlex;
@@ -29,7 +34,7 @@ $color-pallate-5 : #FF9F1C;
   display: grid;
   grid-template-columns: 1fr 0.1fr 0.1fr 0.8fr 0.2fr 1fr;
   gap: 0;
-  grid-template-rows: 3em;
+  grid-template-rows: minmax(3rem, 4rem);
   background: $color-pallate-3;
   
   .popular-btn {
@@ -41,6 +46,7 @@ $color-pallate-5 : #FF9F1C;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
 
+    @include inputReact();
   }
 
   .favourite-btn {
@@ -49,6 +55,7 @@ $color-pallate-5 : #FF9F1C;
     padding: 0.5em 1em;
     border-right: none;
     background: $color-pallate-5;
+    @include inputReact();
   }
 
   .search-btn {
@@ -59,18 +66,15 @@ $color-pallate-5 : #FF9F1C;
     border-bottom-right-radius: 3px;
     border-left: none;
     background: $color-pallate-5;
-    
+    @include inputReact();
   }
   .search-bar {
     grid-column: 4/5;
     @include centerItem();
+    padding-left: 0.5rem;
+    border-radius: 0;
     z-index: 1;
   }
-}
-
-
-input:focus {
-  color: black;
 }
 
 /*FILTER SECTION*/
@@ -85,12 +89,10 @@ input:focus {
   padding: 0.0625em 0.0125em;
   justify-content: space-evenly;
   background-color:$color-pallate-3;
-  animation: filterbackground 2s forwards;
-  //transition: height 2s;
+  animation: filterbackground 0.8s forwards;
 }
 
 .filter-options {
-  /*margin: 0.2125em 2.3625em;*/
   padding: 0.0625em 0.125em;
   display: flex;
   flex-flow: column nowrap;
@@ -111,6 +113,7 @@ input:focus {
   border: none;
   padding: 0 0;
   margin: 0 0;
+  height: 1.6rem;
   background-color:$color-pallate-3;
 }
 
@@ -178,8 +181,10 @@ input:focus {
   flex-grow: 0.5;
   padding-left: 1.2em;
   padding-right: 1.2em;
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-weight: bold;
+  color: $color-pallate-5;
+  -webkit-text-stroke: 0.1px black;
 }
 .article-img {
   flex-grow: 3;
